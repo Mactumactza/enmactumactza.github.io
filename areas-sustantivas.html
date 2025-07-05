@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mactumactzá</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"> 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* La siguiente regla es una buena práctica general y no interfiere con el menú */
+        * {
+          box-sizing: border-box;
+        }
+    
+        /* Estilos base del cuerpo */
+       
+    
+        /* --- ESTILOS PARA EL NUEVO COMPONENTE DE CARPETAS --- */
+        /* Encapsulamos los estilos dentro de .folder-section para evitar conflictos con Bootstrap */
+
+        .folder-section {
+            margin-top: 50px; /* Espacio superior para separar del encabezado de la página */
+            margin-bottom: 50px; /* Espacio inferior para separar del footer */
+        }
+
+        .folder-section h1 { /* Asegura que este h1 solo afecte a la sección de carpetas */
+          text-align: center;
+          margin-top: 40px;
+          color: #2c3e50;
+        }
+    
+        .folder-section .container-folders { /* Usamos una clase diferente para el contenedor de carpetas */
+          max-width: 1200px;
+          margin: 40px auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+        }
+    
+        .folder-section .folder {
+          background: #d4c5a4;
+          border-radius: 12px;
+          width: 320px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+        }
+    
+        .folder-section .folder:hover {
+          transform: scale(1.03);
+        }
+    
+        .folder-section .folder input[type="checkbox"] {
+          display: none;
+        }
+    
+        .folder-section .folder-label {
+          display: block;
+          padding: 20px;
+          background-color: #454349;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          text-align: center;
+        }
+    
+        .folder-section .folder-label i {
+          margin-right: 8px;
+        }
+    
+        .folder-section .folder-content {
+          max-height: 0;
+          overflow: hidden;
+          background: white;
+          color: #333;
+          transition: max-height 0.5s ease, padding 0.5s ease;
+          padding: 0 20px;
+        }
+    
+        .folder-section .folder input:checked ~ .folder-content {
+          max-height: 800px; /* Ajusta este valor si tu contenido es más largo */
+          padding: 20px;
+        }
+    
+        .folder-section .folder-content img {
+          width: 100%;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        }
+    
+        .folder-section .folder-content p {
+          margin: 0;
+          text-align: justify;
+          font-size: 15px;
+        }
+    
+        @media screen and (max-width: 768px) {
+          .folder-section .container-folders {
+            flex-direction: column;
+            align-items: center;
+          }
+    
+          .folder-section .folder {
+            width: 90%;
+          }
+        }
+
+        /* --- CORRECCIONES PARA LOS ICONOS DE REDES SOCIALES EN LA CABECERA --- */
+        /* Asegura que los botones de redes sociales tengan el estilo outline */
+        /* Selectores específicos para anular estilos no deseados */
+        .col-lg-9 > .row.bg-white .d-inline-flex .btn.btn-outline-primary {
+            background-color: transparent !important; /* Fuerza fondo transparente */
+            /* El color primario de Bootstrap por defecto es #007bff.
+               Basado en tu imagen deseada, un gris es más apropiado.
+               Puedes ajustar #6c757d (gris de Bootstrap) o #2c3e50 (el color de tu h1)
+               si #007bff no es el deseado.
+            */
+            border-color: #6c757d !important; /* Color del borde para que sea como la segunda imagen */
+            color: #6c757d !important; /* Color del icono para que sea como la segunda imagen */
+        }
+        /* Estilo al pasar el ratón (hover) sobre los botones de redes sociales */
+        .col-lg-9 > .row.bg-white .d-inline-flex .btn.btn-outline-primary:hover {
+            background-color: #6c757d !important; /* Fondo en hover */
+            color: white !important; /* Icono blanco en hover */
+        }
+        
+        /* Ajusta el espaciado para que no se corte el último botón */
+        /* Elimina el padding a la derecha del contenedor directo de los botones */
+        .col-lg-5.text-right > .d-inline-flex {
+            padding-right: 0 !important; 
+        }
+        /* Asegura que la columna de los botones no tenga un padding que los empuje fuera */
+        .col-lg-5.text-right {
+            padding-right: 15px; /* Valor por defecto de Bootstrap para col-lg */
+        }
+
+        /* Elimina el margen derecho del ÚLTIMO botón de redes sociales en la lista */
+        /* Esto se refuerza con la eliminación de 'mr-2' en el HTML del último botón */
+        .d-inline-flex.align-items-center.p-2 .btn:last-child {
+            margin-right: 0 !important;
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 bg-secondary d-none d-lg-block">
+                    <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <img src="img/mactumactza-logo.png" alt="Logo de la ENRM" class="m-0" style="max-height: 100px;">
+                        <h1 class="m-0 display-4 text-primary text-uppercase">ENRM</h1>
+                    </a>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row bg-white border-bottom d-none d-lg-flex">
+                         <div class="col-lg-7 text-left">
+                        <div class="h-100 d-inline-flex align-items-center py-2 px-3">
+                            <i class="fa fa-envelope text-primary mr-2"></i>
+                            <small>mactuo32o@hotmail.com</small>
+                        </div>
+                        <div class="h-100 d-inline-flex align-items-center py-2 px-2">
+                            <i class="fa fa-phone-alt text-primary mr-2"></i>
+                            <small>(961) 615 57 67</small>
+                        </div>
+                    </div>
+                        <div class="col-lg-5 text-right">
+                            <div class="d-inline-flex align-items-center p-2">
+                                <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary btn-sm-square" href=""> <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
+                        <a href="index.html" class="navbar-brand d-block d-lg-none">
+                            <h1 class="m-0 display-4 text-primary text-uppercase">ENRM</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="index.html" class="nav-item nav-link active">Conocenos</a>
+                                <a href="nosotros.html" class="nav-item nav-link">Dirección</a>
+                                <a href="oferta.html" class="nav-item nav-link">Subdirección Académica</a>
+                                <a href="noticias.html" class="nav-item nav-link">Módulo de Producción</a>
+                                <a href="servicios.html" class="nav-item nav-link">Áreas Sustantivas</a>
+                                <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+                            </div>
+                            </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-page-header" style="margin-bottom: 90px;">
+            <div class="container">
+                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                    <h3 class="display-3 text-white text-uppercase">Áreas Sustantivas</h3>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="folder-section">
+        <div class="container-folders">
+            <div class="folder">
+                <input type="checkbox" id="investigacion" class="folder-checkbox">
+                <label for="investigacion" class="folder-label"><i class="fas fa-flask"></i>Investigación</label>
+                <div class="folder-content">
+                    <img src="img/investigacion.jpg" alt="Investigación">
+                    <p>Esta área se encarga de promover y desarrollar proyectos de investigación relevantes para la educación y la sociedad, fomentando la innovación y el pensamiento crítico en la comunidad estudiantil y académica.<br>Revista Mactumactzá</p>
+                </div>
+            </div>
+
+            <div class="folder">
+                <input type="checkbox" id="docencia" class="folder-checkbox">
+                <label for="docencia" class="folder-label"><i class="fas fa-chalkboard-teacher"></i>Docencia</label>
+                <div class="folder-content">
+                    <img src="img/docentes.jpg" alt="Docencia">
+                    <p>El área de Docencia se centra en la formación de futuros profesionales de la educación, ofreciendo programas académicos de alta calidad, metodologías de enseñanza innovadoras y un cuerpo docente comprometido con la excelencia educativa.</p>
+                </div>
+            </div>
+
+            <div class="folder">
+                <input type="checkbox" id="extension" class="folder-checkbox">
+                <label for="extension" class="folder-label"><i class="fas fa-globe"></i>Extensión y DC.</label>
+                <div class="folder-content">
+                    <img src="img/extension-difusion.jpg" alt="Extensión y Difusión Cultural">
+                    <p>Esta área busca vincular la institución con la sociedad, a través de proyectos de extensión comunitaria, actividades culturales y artísticas, y la difusión del conocimiento, contribuyendo al desarrollo social y cultural de la región.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-lg-center p-4" style="background: rgba(256, 256, 256, .05);">
+                    <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
+                    <div class="ml-3">
+                        <h5 class="text-white">Ubicación</h5>
+                        <p class="m-0">Mactumatzá s/n, Plan de Ayala, 29020 Tuxtla Gutiérrez, Chis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-lg-center p-4" style="background: rgba(256, 256, 256, .05);">
+                    <i class="fa fa-2x fa-envelope-open text-primary"></i>
+                    <div class="ml-3">
+                        <h5 class="text-white">Contactanos</h5>
+                        <p class="m-0">info@example.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-lg-center p-4" style="background: rgba(256, 256, 256, .05);">
+                    <i class="fa fa-2x fa-phone-alt text-primary"></i>
+                    <div class="ml-3">
+                        <h5 class="text-white">Llamanos</h5>
+                        <p class="m-0">+012 345 6789</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 mt-n2 display-4 text-primary text-uppercase">ENRM</h1>
+                </a>
+                <p>Sigue nuestras redes sociales</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primary mb-4">Enlaces Populares </h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Conocenos</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Dirección</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Área Sustantivas</a>
+                    <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contacto</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primary mb-4">Enlaces Rápidos</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Preguntas Frecuentes</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Ayuda</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terminos</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacidad</a>
+                    <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Mapa</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primary mb-4">Boletín</h4>
+                <p>Esté es el apartado de Boletín</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-0" style="padding: 25px;" placeholder="Ingresa tu correo">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Únete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-4 mt-5 mx-0" style="background: rgba(256, 256, 256, .05);">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a class="font-weight-bold" href="#">Escuela Normal Rural Mactumactzá</a>.</br>Todos los derechos reservados</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-primary px-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
