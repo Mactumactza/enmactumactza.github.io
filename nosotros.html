@@ -114,6 +114,7 @@
 .dropdown:hover > .dropdown-menu {
     display: block;
 }
+
 </style>
 
             <!-- Submenú Servicios -->
@@ -367,9 +368,18 @@
     .org-chart > ul > li > ul > li > ul {
         margin-top: 30px;
     }
+
+    /*Ocultar*/
+    @media screen and (max-width: 768px) {
+    .org-chart {
+        display: none;
+    }
+}
+
 </style>
 
-<div class="container my-5">
+<!--<div class="container my-5">-->
+    <div class="org-chart">
     <h2 class="text-uppercase text-primary" style="text-align: center;">Organigrama institucional</h2>
     <br><br><br>
     <div class="org-chart">
