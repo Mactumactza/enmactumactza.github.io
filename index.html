@@ -281,6 +281,31 @@
 <!-- Día de la Mujer Indígena End -->
 
 <!-- Actividades Start -->
+    <style>
+  /* Ajustes generales para el carrusel de actividades */
+  #actividadesCarousel .carousel-item img {
+    height: 700px;          /* Altura fija de las imágenes */
+    width: 100%;            /* Que siempre ocupen el ancho */
+    object-fit: cover;      /* Ajusta sin deformar */
+    border-radius: 12px;    /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+  }
+
+  #actividadesCarousel .carousel-control-prev-icon,
+  #actividadesCarousel .carousel-control-next-icon {
+    filter: invert(1); /* Hace las flechas blancas para que se vean en cualquier fondo */
+  }
+
+  /* Para que el contenido (texto) se vea bien alineado */
+  #actividadesCarousel .col-lg-7 {
+    padding: 20px;
+  }
+
+  #actividadesCarousel h2 {
+    font-weight: bold;
+  }
+</style>
+
 <div class="container-fluid py-5">
   <div class="container py-5">
     <div class="text-center mb-5">
@@ -811,6 +836,7 @@
 </body>
 
 </html>
+
 
 
 
