@@ -122,75 +122,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    .carrusel-imagenes {
-      display: flex;
-      width: 100%;
-      animation: deslizar 18s infinite;
-    }
-
-    .carrusel-imagenes img {
-      width: 700px;
-      height: auto;
-      flex-shrink: 0;
-    }
-
-    @keyframes deslizar {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(0); }
-      25% { transform: translateX(-700px); }
-      45% { transform: translateX(-700px); }
-      50% { transform: translateX(-1400px); }
-      70% { transform: translateX(-1400px); }
-      75% { transform: translateX(-2100px); }
-      95% { transform: translateX(-2100px); }
-      100% { transform: translateX(0); }
-    }
-
-    /* Botones */
-    .carrusel-boton {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-
-    .carrusel-boton.izq {
-      left: 10px;
-    }
-
-    .carrusel-boton.der {
-      right: 10px;
-    }
-  </style>
-</head>
-<body>
-  <div class="carrusel">
-    <div class="carrusel-imagenes" id="carrusel">
-      <img src="danza.png" alt="Club de Danza">
-      <img src="deporte.png" alt="Club de Deporte">
-      <img src="ajedrez.png" alt="Club de Ajedrez">
-    </div>
-    <button class="carrusel-boton izq" onclick="mover(-1)">&#10094;</button>
-    <button class="carrusel-boton der" onclick="mover(1)">&#10095;</button>
-  </div>
-
-  <script>
-    let index = 0;
-    const carrusel = document.getElementById("carrusel");
-    const total = carrusel.children.length;
-
-    function mover(direccion) {
-      index = (index + direccion + total) % total;
-      carrusel.style.transition = "transform 0.5s ease";
-      carrusel.style.transform = `translateX(${-700 * index}px)`;
-    }
-  </script>
+   </style>
 
             <!-- Submenú Servicios -->
             <div class="dropdown-submenu position-relative">
